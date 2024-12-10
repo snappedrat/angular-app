@@ -1,6 +1,6 @@
 import { Routes } from '@angular/router';
 import { AppComponent } from './app.component';
-import { Component1Component } from './component1/component1.component';
+import { LoginComponent } from './login/login.component';
 import { Component2Component } from './component2/component2.component';
 import { Component3Component } from './component3/component3.component';
 import { Component4Component } from './component4/component4.component';
@@ -13,7 +13,7 @@ import { Component10Component } from './component10/component10.component';
 
 export const routes: Routes = [
    { path:'',component:AppComponent,},
-   { path:'component1',component:Component1Component,},
+   { path:'login',component:LoginComponent,},
    { path:'component2',component:Component2Component,},
    { path:'component3',component:Component3Component,},
    { path:'component4',component:Component4Component,},
