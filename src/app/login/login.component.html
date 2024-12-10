@@ -1,12 +1,32 @@
-<div class="fo">
-    
+<div class="ss">
+    <div class="form-container">
 
-<form class="login-form" method="post" [formGroup]="form">
-<h1>login form</h1>
-<input type="text" name="username" formControlName="username" placeholder="please enter your username"><br>
-<input type="password" name="password" formControlName="password" placeholder="please enter your password"><br>
-<button class="btn" (click)="onsubmit()">Login</button>
-
-
-</form>
+        <form class="login-form" method="post" [formGroup]="form">
+        <h1>login form</h1>
+        
+        <div class="form-group">
+            <label>Username</label>
+            <input type="text" id="username" formControlName="username" placeholder="Enter your username">
+            @if(form.get('username')?.touched && form.get('username')?.invalid){
+              <div style="color: brown;">Please enter username</div>
+            }
+          </div>
+          <div class="form-group">
+            <label>Password</label>
+            <input type="password" id="password" formControlName="password" placeholder="Enter your password">
+            @if(form.get('password')?.touched && form.get('password')?.invalid){
+              @if(form.get('password')?.errors?.['required']){
+                <div style="color: brown;">Password is required</div>
+              }
+              @if(form.get('password')?.errors?.['minlength']){
+                <div style="color: brown;">Enter valid Password</div>
+              }
+            }
+          </div>
+        
+        <button [disabled]="form.invalid" class="btn" (click)="onsubmit()"  [ngClass]="{'btn-css': form.invalid}">Login</button>
+        
+        </form>
+        </div>
+        
 </div>
